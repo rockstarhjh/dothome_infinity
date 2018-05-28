@@ -39,7 +39,7 @@
 	    <textarea class="form-control ckfinder" id="editor" name="description" value="<?php echo set_value('description');?>"></textarea>
 	  </div>
 	  <button type="submit" class="btn btn-primary" id="save_contents">저장</button>
-	  <input type="hidden" id="p_id_title" name="p_id_title">
+	  <input type="hidden" id="c_id" name="c_id">
 	  <input type="hidden" id="sectionIndex" name="sectionIndex">
 	  <input type="hidden" id="enumValue" name="enumValue">
 </form>
@@ -156,6 +156,27 @@
     	 }
     	return title;
     };
+    //관리자모드의 카테고리 메뉴이름이 같을 시 첫번째에 입력되는 현상 수정
+    //예 선율이 돌~2돌, 2돌~3돌 둘다 동영상의 메뉴가 존재할때 항상 돌~2돌의 동영상에 저장되는 현상
+    function get_category_id(){
+	    var a=$('#category').find("option:selected").attr('value');
+	    var b=$('#2nd_category').find("option:selected").attr('value');
+	    var c=$('#3rd_category').find("option:selected").attr('value');
+	    var d=$('#4th_category').find("option:selected").attr('value');
+    	if(d!==undefined){
+    		var c_id=d;//카테고리 id
+    	}
+    	else if(c!==undefined){
+    		var c_id=c;
+    	}else if(b!==undefined){
+    		var c_id=b;
+    	}else if(a!==undefined){
+    		var c_id=a;
+    	 }else{
+    	 	var c_id=null;
+    	 }
+    	return c_id;
+    };
     function del(){
 	    var a=$('#category').find("option:selected").index();
 	    var b=$('#2nd_category').find("option:selected").index();
@@ -240,19 +261,20 @@
     	}
     }
    	function save(){
-   		var menu_title=add();
+   		//var menu_title=add();//메뉴타이틀 가져오는것
+   		var menu_id=get_category_id();//마지막 메뉴 id 가져오기
    		var sectionIndex=section_index();
    		var enumValue=$('#secret').val();
    		// var c=$('#3rd_category').prop('selectedIndex');
     	// var b=$('#2nd_category').prop('selectedIndex');
     	var a=$('#category').prop('selectedIndex');
-    	//console.log(menu_title);
+    	//console.log(menu_id);
     	if(!a){
     		alert('저장전에 메뉴를 선택해주세요');
    			return false;
    		}
    		else{
-   			$('#p_id_title').val(menu_title);
+   			$('#c_id').val(menu_id);
    			$('#sectionIndex').val(sectionIndex);
    			$('#enumValue').val(enumValue);
    			$('form').submit(function(){

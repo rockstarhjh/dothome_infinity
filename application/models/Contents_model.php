@@ -278,7 +278,7 @@ class Contents_model extends CI_Model {
 	public function add_contents($value='')
 	{
 		$this->db->select('id');
-		$this->db->where('title', $value['p_id_title']); 
+		$this->db->where('id', $value['category_id']); 
 		$query=$this->db->get('category')->row();
 		$p_id=$query->id;
 		$title=$value['title'];
@@ -294,6 +294,25 @@ class Contents_model extends CI_Model {
 		}
 		return $data;
 	}
+	// public function add_contents($value='')
+	// {
+	// 	$this->db->select('id');
+	// 	$this->db->where('title', $value['p_id_title']); 
+	// 	$query=$this->db->get('category')->row();
+	// 	$p_id=$query->id;
+	// 	$title=$value['title'];
+	// 	$division=$value['division'];
+	// 	$description=$value['description'];
+	// 	$this->db->set('date', 'now()', false);
+	// 	if($value['tableIndex']==1){
+	// 		$data=$this->db->insert('aboutme', array('p_id'=>$p_id,'title'=>$title,'description'=>$description,'division'=>$division));
+	// 	}else if($value['tableIndex']==2){
+	// 		$data=$this->db->insert('melody', array('p_id'=>$p_id,'title'=>$title,'description'=>$description));
+	// 	}else if($value['tableIndex']==3){
+	// 		$data=$this->db->insert('diary', array('p_id'=>$p_id,'title'=>$title,'description'=>$description));
+	// 	}
+	// 	return $data;
+	// }
 	public function add_comment($value)
 	{
 		if($value['table_index']==1){

@@ -147,7 +147,7 @@ class Contents extends MY_Controller {
 				$chk=$this->contents_model->add_contents(array(
 					'title' =>$this->input->post('title') ,
 					'description'=>$this->input->post('description'),
-					'p_id_title'=>$this->input->post('p_id_title'),
+					'category_id'=>$this->input->post('c_id'),
 					'tableIndex'=>$this->input->post('sectionIndex'),
 					'division'=>$this->input->post('enumValue'),
 				));
