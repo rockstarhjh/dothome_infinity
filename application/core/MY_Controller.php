@@ -12,9 +12,47 @@ class MY_Controller extends CI_Controller {
 	{
 		
 	}
-	function _head($id="")
+	function _head($id='',$title='')
 	{
-		$this->load->view('head');
+		$maintitle='락스타-개인블로그';
+		$maindesc='코딩,언어,취미,창업,개인사에대한 블로그입니다.';
+		$mainsubject='락스타의 코딩,언어,취미,창업,개인사 기록';
+		$mainkeyword='황선율, 코딩, 창업, 스타트업, 코드이그나이터,  육아일기, 육아, 락스타';
+		$title1='락스타의 정리공간';
+		$desc1='코딩, 프로그램, 영어, 일본어, 게임, 창업에 대한 락스타의 정리내용입니다.';
+		$subject1='코딩, 프로그램, 영어, 일본어, 게임, 창업에 대한 락스타의 정리내용입니다.';
+		$keyword1='코딩, 코드이그나이터, 프렌즈, 라이브아카데미, 생활일본어';
+		$title2='황선율, melody';
+		$desc2='황선율, 선율이의 사진&동영상 및 육아일기 기록';
+		$subject2='선율이(melody)의 앨범 및 육아일기 기록';
+		$keyword2='황선율, 선율이, melody, 선율이 육아일기, 선율이 사진,선율이 동영상';
+		if($id==0){
+			$meta_title=$maintitle;
+			$meta_description=$maindesc;
+			$meta_subject=$mainsubject;
+			$meta_keyword=$mainkeyword;
+		}else if($id==1){
+			if($title){
+				$meta_title=$title;
+			}else{
+				$meta_title=$title1;
+			}			
+			$meta_description=$desc1;
+			$meta_subject=$subject1;
+			$meta_keyword=$keyword1;
+		}else if($id==2){
+			$meta_title=$title2;
+			$meta_description=$desc2;
+			$meta_subject=$subject2;
+			$meta_keyword=$keyword2;
+		}else{
+			$meta_title=$maintitle;
+			$meta_description=$maindesc;
+			$meta_subject=$mainsubject;
+			$meta_keyword=$mainkeyword;
+		}
+		$data=array('meta_title'=>$meta_title,'meta_description'=>$meta_description,'meta_subject'=>$meta_subject,'meta_keyword'=>$meta_keyword);
+		$this->load->view('head', array('data'=>$data), false);
 		$this->load->view('menu');
 	}
 	function _footer($id="")

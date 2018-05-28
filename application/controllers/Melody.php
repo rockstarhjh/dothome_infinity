@@ -12,7 +12,7 @@ class Melody extends MY_Controller {
 		$path2='story';
 		$sidebar_title='Melody~';
 		$data = array('contents' =>$contents ,'category'=>$category,'path1'=>$path1,'path2'=>$path2,'sidebar_title'=>$sidebar_title,'session'=>2,'related_category'=>$related_category);
-		$this->_head();
+		$this->_head(2);
 		$this->load->view('contents', array('data'=>$data), FALSE);
 		$this->_footer();	
 	}
@@ -25,7 +25,7 @@ class Melody extends MY_Controller {
 		$path2='story';
 		$sidebar_title='Melody~';
 		$data = array('contents' =>$contents ,'category'=>$category,'path1'=>$path1,'path2'=>$path2,'sidebar_title'=>$sidebar_title,'session'=>2,'related_category'=>$related_category);
-		$this->_head();
+		$this->_head(2);
 		$this->load->view('contents', array('data'=>$data), FALSE);
 		$this->_footer();		
 	}

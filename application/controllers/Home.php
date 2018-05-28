@@ -6,7 +6,7 @@ class Home extends MY_Controller {
 	public function index()
 	{
 		$data="";
-		$this->_head();
+		$this->_head(0);
 		$this->load->view('main', $data, FALSE);
 		$this->_footer();
 		

@@ -15,7 +15,7 @@ class Plan extends MY_Controller {
 			$path2='diary';
 			$sidebar_title='Diary';
 			$data = array('contents' =>$contents ,'category'=>$category,'path1'=>$path1,'path2'=>$path2,'sidebar_title'=>$sidebar_title,'session'=>3,'related_category'=>$related_category);
-			$this->_head();
+			$this->_head(3);
 			$this->load->view('contents', array('data'=>$data), FALSE);
 			$this->_footer();
 		}
@@ -34,7 +34,7 @@ class Plan extends MY_Controller {
 			$path2='diary';
 			$sidebar_title='Diary';
 			$data = array('contents' =>$contents ,'category'=>$category,'path1'=>$path1,'path2'=>$path2,'sidebar_title'=>$sidebar_title,'session'=>3,'related_category'=>$related_category);
-			$this->_head();
+			$this->_head(3);
 			$this->load->view('contents', array('data'=>$data), FALSE);
 			$this->_footer();
 		}
@@ -44,7 +44,7 @@ class Plan extends MY_Controller {
 		if(!$this->session->userdata('master_login')){
 			$this->_host_auth();
 		}else{
-			$this->_head();
+			$this->_head(3);
 			$this->load->view('schedule');
 			$this->_footer();
 		}

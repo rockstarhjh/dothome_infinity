@@ -16,7 +16,7 @@ class Aboutme extends MY_Controller {
 		$path2='story';
 		$sidebar_title='About Me';
 		$data = array('contents' =>$contents ,'category'=>$category,'path1'=>$path1,'path2'=>$path2,'sidebar_title'=>$sidebar_title,'session'=>1,'related_category'=>$related_category);
-		$this->_head();
+		$this->_head(1);
 		$this->load->view('contents', array('data'=>$data), FALSE);
 		$this->_footer();		
 
@@ -26,11 +26,13 @@ class Aboutme extends MY_Controller {
 		$contents=$this->_pagination_GetByP_ID($value,1);
 		$category=$this->contents_model->get_category($value);
 		$related_category=$this->_related_category($contents);
+		$last_category=explode('>', $related_category[0]);//메타태그 타이틀 추출
+		$meta_title=array_reverse($last_category)[0];
 		$path1='aboutme';
 		$path2='story';
 		$sidebar_title='About Me';
 		$data = array('contents' =>$contents ,'category'=>$category,'path1'=>$path1,'path2'=>$path2,'sidebar_title'=>$sidebar_title,'session'=>1,'related_category'=>$related_category);
-		$this->_head();
+		$this->_head(1,$meta_title);
 		$this->load->view('contents', array('data'=>$data), FALSE);
 		$this->_footer();		
 	}
