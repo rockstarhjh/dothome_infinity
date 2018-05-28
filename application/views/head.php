@@ -4,7 +4,7 @@
         <meta charset="utf-8"/>
         <meta name="Author" content="RockStar">
         <title>락스타-개인블로그</title>
-		<meta name="description" content="늦어도 차근차근 코더되기.">
+		<meta name="description" content="늦어도 차근차근 개발자되기.">
 		<meta name="keywords" content="코딩, 창업, 스타트업, 코드이그나이터, 자바스프링, 육아일기, 육아, 락스타">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta property="og:title" content="걸음마개발자">

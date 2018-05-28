@@ -70,7 +70,7 @@ class MY_Controller extends CI_Controller {
 		$config['total_rows'] = $count;
 		$config['per_page'] = 5;
 		$config['uri_segment'] = 3;
-		$config['num_links'] = 5;
+		$config['num_links'] = 2;
 		$config['num_tag_open']  = '<li class="page-item">';
 		$config['num_tag_close'] = '</li>';
 		$config['cur_tag_open']  = '<li class="page-item"><a class="page-link">';
@@ -97,7 +97,7 @@ class MY_Controller extends CI_Controller {
 		$config['total_rows'] = $count;
 		$config['per_page'] = 5;
 		$config['uri_segment'] = 4;
-		$config['num_links'] = 5;
+		$config['num_links'] = 2;
 		$config['num_tag_open']  = '<li class="page-item">';
 		$config['num_tag_close'] = '</li>';
 		$config['cur_tag_open']  = '<li class="page-item"><a class="page-link">';
