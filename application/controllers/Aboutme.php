@@ -27,7 +27,11 @@ class Aboutme extends MY_Controller {
 		$category=$this->contents_model->get_category($value);
 		$related_category=$this->_related_category($contents);
 		$last_category=explode('>', $related_category[0]);//메타태그 타이틀 추출
-		$meta_title=array_reverse($last_category)[0];
+		if(count($last_category)>=2){
+			$meta_title=(array_reverse($last_category)[1]).(array_reverse($last_category)[0]);
+		}else{
+			$meta_title=array_reverse($last_category)[0];
+		}
 		$path1='aboutme';
 		$path2='story';
 		$sidebar_title='About Me';
